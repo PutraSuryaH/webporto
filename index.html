@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Bar with Navigation Bar</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function changeSong(source) {
+            var audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = source;
+            audioPlayer.play();
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <img src="images/google.webp" alt="Google Logo">
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <form action="https://www.google.com/search" method="get" class="search-bar" target="_blank">
+            <input type="text" placeholder="Search Anything by Google" name="q">
+            <button type="submit"><img src="images/search.png" alt="Search Icon"></button>
+        </form>
+    </div>
+    <video autoplay muted loop id="video-background">
+        <source src="video/ijen.mp4" type="video/mp4">
+    </video>
+
+    <div class="license">
+        Video oleh Ronin Studio dari Pixabay
+    </div>
+
+    <div class="spotify-player">
+        <img src="images/spotify.png" alt="Spotify Logo">
+        <div class="info">
+            <h3>Now Playing</h3>
+            <p>Song Title - Artist Name</p>
+        </div>
+        <div class="playlist">
+            <div class="playlist-item" onclick="changeSong('audio/forest-lullaby-110624.mp3')">Forest Lullaby</div>
+            <div class="playlist-item" onclick="changeSong('audio/Ashot.mp3')">Ashot</div>
+            <div class="playlist-item" onclick="changeSong('audio/lofi-study-112191.mp3')">Lofi Study</div>
+        </div>
+        <audio id="audio-player" controls loop> 
+            <source src="audio/forest-lullaby-110624.mp3" type="audio/mp3">
+            <source src="audio/Ashot.mp3" type="audio/mp3">
+            <source src="audio/lofi-study-112191.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</body>
+</html>

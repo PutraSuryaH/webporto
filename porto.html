@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Andi Pratama</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-color: #f0f0f0;
+      --button-border: #000000;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --card-color: #1e1e1e;
+      --button-border: #f0f0f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.4s, color 0.4s;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    section {
+      margin: 40px 0;
+    }
+
+    h2 {
+      border-bottom: 2px solid #cccccc;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: var(--card-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.4s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eeeeee;
+      margin-top: 40px;
+    }
+
+    body.dark footer {
+      background-color: #1a1a1a;
+    }
+
+    a {
+      color: var(--text-color);
+      text-decoration: underline;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--button-border);
+      color: var(--text-color);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Andi Pratama</h1>
+    <p>Mahasiswa Teknik Informatika | Web Developer Pemula</p>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeButton">Gelap</button>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Tentang Saya</h2>
+      <p>Saya Andi Pratama, sedang belajar membangun website dan tertarik pada dunia pengembangan web, UI/UX design, dan teknologi modern.</p>
+    </section>
+
+    <section>
+      <h2>Keahlian</h2>
+      <ul>
+        <li>HTML & CSS</li>
+        <li>JavaScript Dasar</li>
+        <li>UI Design dengan Figma</li>
+        <li>Git & GitHub</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Proyek</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Website Toko Online</h3>
+          <p>Desain dan pengembangan halaman toko online sederhana menggunakan HTML & CSS.</p>
+        </div>
+        <div class="project-card">
+          <h3>Aplikasi To-Do List</h3>
+          <p>Aplikasi sederhana untuk mencatat tugas harian berbasis JavaScript.</p>
+        </div>
+        <div class="project-card">
+          <h3>UI E-Wallet App</h3>
+          <p>Redesain tampilan aplikasi dompet digital menggunakan Figma.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Kontak</h2>
+      <p>Email: <a href="mailto:andipratama@email.com">andipratama@email.com</a></p>
+      <p>GitHub: <a href="https://github.com/andipratama" target="_blank">github.com/andipratama</a></p>
+      <p>Instagram: <a href="https://instagram.com/andipratama" target="_blank">@andipratama</a></p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Andi Pratama. All rights reserved.
+  </footer>
+
+  <script>
+    window.onload = function () {
+      alert("Selamat datang di portofolio Andi Pratama!");
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const button = document.getElementById('themeButton');
+
+      body.classList.toggle('dark');
+
+      if (body.classList.contains('dark')) {
+        button.textContent = "Terang";
+      } else {
+        button.textContent = "Gelap";
+      }
+    }
+  </script>
+
+</body>
+</html>

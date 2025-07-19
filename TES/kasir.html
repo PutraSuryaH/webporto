@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Kasir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Aplikasi Kasir</h2>
+        <div class="form-group">
+            <label for="item">Barang:</label>
+            <input type="text" id="item">
+            <label for="harga">Harga:</label>
+            <input type="number" id="harga">
+            <label for="jumlah">Jumlah:</label>
+            <input type="number" id="jumlah">
+            <button onclick="addItem()">Tambah</button>
+        </div>
+
+        <table id="itemTable">
+            <thead>
+                <tr>
+                    <th>Barang</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="total">Total: Rp 0</div>
+    </div>
+
+    <script>
+        let items = [];
+
+        function addItem() {
+            const itemInput = document.getElementById("item");
+            const hargaInput = document.getElementById("harga");
+            const jumlahInput = document.getElementById("jumlah");
+
+            const item = itemInput.value;
+            const harga = parseFloat(hargaInput.value);
+            const jumlah = parseInt(jumlahInput.value);
+
+            if (item && harga && jumlah) {
+                const subtotal = harga * jumlah;
+
+                items.push({
+                    item: item,
+                    harga: harga,
+                    jumlah: jumlah,
+                    subtotal: subtotal
+                });
+
+                renderTable();
+                updateTotal();
+
+                itemInput.value = "";
+                hargaInput.value = "";
+                jumlahInput.value = "";
+            }
+        }
+
+        function renderTable() {
+            const tableBody = document.querySelector("#itemTable tbody");
+            tableBody.innerHTML = "";
+
+            items.forEach(function (item) {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.item}</td>
+                    <td>${item.harga}</td>
+                    <td>${item.jumlah}</td>
+                    <td>${item.subtotal}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        function updateTotal() {
+            let total = 0;
+
+            items.forEach(function (item) {
+                total += item.subtotal;
+            });
+
+            const totalElement = document.getElementById("total");
+            totalElement.innerHTML = `Total: ${total}`;
+        }
+    </script>
+</body>
+</html>
